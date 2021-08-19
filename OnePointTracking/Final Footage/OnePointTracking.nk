@@ -1,0 +1,170 @@
+#! C:/Program Files/Nuke13.0v2/nuke-13.0.2.dll -nx
+#write_info Write1 file:"C:/Users/lenovo/Desktop/NUKE/Your First Day of Tracking in NUKE/OnePointTracking/OnePointTracking_%03d.mov" format:"1280 720 1" chans:":rgba.red:rgba.green:rgba.blue:" framerange:"1 44" fps:"0" colorspace:"default (Gamma2.2)" datatype:"unknown" transfer:"unknown" views:"main" colorManagement:"Nuke"
+version 13.0 v2
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="0" y="0" w="1363" h="696" screen="0">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="700" stretch="1"/>
+            <splitter orientation="2">
+                <split size="384"/>
+                <dock id="" activePageId="Viewer.1">
+                    <page id="Viewer.1"/>
+                </dock>
+                <split size="270"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                </dock>
+            </splitter>
+            <split size="615"/>
+            <dock id="" activePageId="Properties.1">
+                <page id="Properties.1"/>
+                <page id="uk.co.thefoundry.backgroundrenderview.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+inputs 0
+name "C:/Users/lenovo/Desktop/NUKE/Your First Day of Tracking in NUKE/OnePointTracking.nk"
+last_frame 44
+lock_range true
+format "1280 720 0 0 1280 720 1 HD_720"
+proxy_type scale
+proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+colorManagement Nuke
+workingSpaceLUT linear
+monitorLut sRGB
+monitorOutLUT rec709
+int8Lut sRGB
+int16Lut sRGB
+logLut Cineon
+floatLut linear
+}
+Read {
+inputs 0
+file_type png
+file "C:/Users/lenovo/Desktop/NUKE/Your First Day of Tracking in NUKE/Reference Files/attack_of_the_zombies_small/zombies_attack_#####.png"
+format "744 338 0 0 744 338 1 "
+last 44
+origlast 44
+origset true
+name Read2
+xpos -118
+ypos -188
+}
+Transform {
+translate {{Tracker1.tracks.1.track_x} {Tracker1.tracks.1.track_y}}
+center {372 169}
+name Transform1
+xpos -118
+ypos -55
+}
+Transform {
+translate {-364 -472}
+center {372 169}
+name Transform2
+xpos -118
+ypos -11
+}
+Read {
+inputs 0
+file_type png
+file "C:/Users/lenovo/Desktop/NUKE/Your First Day of Tracking in NUKE/Reference Files/1_point_zombie_track/Zombie_#####.png"
+format "1280 720 0 0 1280 720 1 HD_720"
+last 44
+origlast 44
+origset true
+name Read1
+xpos -328
+ypos -185
+}
+Tracker4 {
+tracks { { 1 31 1 } 
+{ { 5 1 20 enable e 1 } 
+{ 3 1 75 name name 1 } 
+{ 2 1 58 track_x track_x 1 } 
+{ 2 1 58 track_y track_y 1 } 
+{ 2 1 63 offset_x offset_x 1 } 
+{ 2 1 63 offset_y offset_y 1 } 
+{ 4 1 27 T T 1 } 
+{ 4 1 27 R R 1 } 
+{ 4 1 27 S S 1 } 
+{ 2 0 45 error error 1 } 
+{ 1 1 0 error_min error_min 1 } 
+{ 1 1 0 error_max error_max 1 } 
+{ 1 1 0 pattern_x pattern_x 1 } 
+{ 1 1 0 pattern_y pattern_y 1 } 
+{ 1 1 0 pattern_r pattern_r 1 } 
+{ 1 1 0 pattern_t pattern_t 1 } 
+{ 1 1 0 search_x search_x 1 } 
+{ 1 1 0 search_y search_y 1 } 
+{ 1 1 0 search_r search_r 1 } 
+{ 1 1 0 search_t search_t 1 } 
+{ 2 1 0 key_track key_track 1 } 
+{ 2 1 0 key_search_x key_search_x 1 } 
+{ 2 1 0 key_search_y key_search_y 1 } 
+{ 2 1 0 key_search_r key_search_r 1 } 
+{ 2 1 0 key_search_t key_search_t 1 } 
+{ 2 1 0 key_track_x key_track_x 1 } 
+{ 2 1 0 key_track_y key_track_y 1 } 
+{ 2 1 0 key_track_r key_track_r 1 } 
+{ 2 1 0 key_track_t key_track_t 1 } 
+{ 2 1 0 key_centre_offset_x key_centre_offset_x 1 } 
+{ 2 1 0 key_centre_offset_y key_centre_offset_y 1 } 
+} 
+{ 
+ { {curve K x1 1} "track 1" {curve x1 479.7999878 475.20578 470.3251648 464.5404968 456.5182495 446.6233826 437.0377502 427.7000122 421.4619446 418.2938538 418.3193665 419.3267822 420.3382568 420.664032 419.3577881 416.6556702 413.3106995 411.3470459 410.7237549 411.1433105 412.4007263 414.3952026 416.4482727 418.6459351 422.5116577 429.8953247 442.256897 461.3999939 483.8999939 510 534.2000122 557.5 584.0999756 608 628.9000244 645.5 659.9683228 671.1762695 680.2969971 686.7754517 690.9208984 694.8837891 699.5128784 705.757019} {curve x1 520 529.2421265 539.4222412 548.6490479 555.02948 558.6800537 561.3322144 562.0999756 562.1188965 564.5966797 569.565979 573.8776245 575.7808838 575.4008789 573.3363647 570.1072998 567.645813 566.4764404 565.8876953 565.4448242 565.5524902 565.7651978 565.3258057 563.9368286 562.2731934 561.1600342 560.9823608 561.5999756 563.7999878 566.5 565.7000122 567.4000244 569.2000122 569.5999756 566.2999878 558.2000122 548.9512329 541.1669312 536.5296021 535.1809082 537.3356934 541.5175781 546.53125 550.3942261} {curve K x1 0 x8 0 x18 0} {curve K x1 0 x8 0 x18 0} 1 0 0 {curve x1 0 3.702748392e-05 5.575744415e-05 0.0001032770037 0.0001442319888 0.0001830961101 0.0001976581908 0 2.078654762e-05 3.67031741e-05 1.927452726e-05 0 2.427229208e-05 3.879113479e-05 5.112108283e-05 5.813394869e-05 3.376883448e-05 2.767006676e-05 2.483087187e-05 4.296303654e-05 4.414877319e-05 5.532593616e-05 5.19275669e-05 6.396572369e-05 0.0001013370318 0.0001066219801 0.0001288968129 0 0 0 0 0 0 0 0 0 4.282614737e-05 8.686497543e-05 0.0001983543397 0.0002847604943 0.0003016173404 0.0002784356683 0.0002298020086 0.00020122976} 0 0.0032892 -12.9821 -12 12.9821 12 -16.2 -13 16.2 13 {curve} {curve x1 453 x8 401 x12 392 x28 432 x29 455 481 505 529 555 579 600 617} {curve x1 495 x8 537 x12 549 x28 537 x29 539 541 541 542 544 545 541 533} {curve x1 506 x8 454 x12 445 x28 489 x29 512 538 562 586 612 636 657 674} {curve x1 544 x8 586 x12 598 x28 586 x29 588 590 590 591 593 594 590 582} {curve x1 469 x8 417 x12 408 x28 448 x29 471 497 521 545 571 595 616 633} {curve x1 508 x8 550 x12 562 x28 550 x29 552 554 554 555 557 558 554 546} {curve x1 490 x8 438 x12 429 x28 473 x29 496 522 546 570 596 620 641 658} {curve x1 531 x8 573 x12 585 x28 573 x29 575 577 577 578 580 581 577 569} {curve x1 10.29998779 x8 10.20001221 x12 10.82678223 x28 12.8999939 x29 12.3999939 12.5 12.70001221 12 12.59997559 12.5 12.40002441 12} {curve x1 11.5 x8 11.59997559 x12 11.37762451 x28 11.09997559 x29 11.29998779 12 11.20001221 11.90002441 11.70001221 11.09997559 11.79998779 11.70001221}  } 
+} 
+}
+
+translate {{curve x1 0 -4.594207764 -9.474822998 -15.25949097 -23.28173828 -33.17660522 -42.76223755 -52.09997559 -58.33804321 -61.50613403 -61.48062134 -60.47320557 -59.46173096 -59.13595581 -60.44219971 -63.14431763 -66.48928833 -68.45294189 -69.07623291 -68.65667725 -67.39926147 -65.40478516 -63.35171509 -61.15405273 -57.28833008 -49.90466309 -37.54309082 -18.3999939 4.100006104 30.20001221 54.40002441 77.70001221 104.2999878 128.2000122 149.1000366 165.7000122 180.168335 191.3762817 200.4970093 206.9754639 211.1209106 215.0838013 219.7128906 225.9570313} {curve x1 0 9.242126465 19.42224121 28.64904785 35.02947998 38.68005371 41.33221436 42.09997559 42.11889648 44.59667969 49.565979 53.87762451 55.78088379 55.40087891 53.33636475 50.1072998 47.64581299 46.47644043 45.88769531 45.44482422 45.55249023 45.76519775 45.32580566 43.93682861 42.27319336 41.16003418 40.98236084 41.59997559 43.79998779 46.5 45.70001221 47.40002441 49.20001221 49.59997559 46.29998779 38.20001221 28.95123291 21.16693115 16.52960205 15.1809082 17.33569336 21.51757813 26.53125 30.39422607}}
+center {{curve x1 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878 479.7999878} {curve x1 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520 520}}
+name Tracker1
+xpos -328
+ypos -61
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge1
+xpos -328
+ypos -11
+}
+Write {
+file "C:/Users/lenovo/Desktop/NUKE/Your First Day of Tracking in NUKE/OnePointTracking/OnePointTracking_###.mov"
+file_type mov
+mov64_format "mov (QuickTime / MOV)"
+mov64_codec h264
+mov_h264_codec_profile "High 4:2:0 8-bit"
+mov64_pixel_format {{0}}
+mov64_quality High
+mov64_fast_start true
+mov64_write_timecode true
+mov64_gop_size 12
+mov64_b_frames 0
+mov64_bitrate 28000
+mov64_bitrate_tolerance 0
+mov64_quality_min 1
+mov64_quality_max 3
+checkHashOnRead false
+version 2
+name Write1
+xpos -328
+ypos 50
+}
+Viewer {
+frame 1
+frame_range 1-44
+input_process false
+name Viewer1
+xpos -328
+ypos 114
+}
